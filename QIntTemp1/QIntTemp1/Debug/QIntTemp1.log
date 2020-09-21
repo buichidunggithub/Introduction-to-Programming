@@ -1,0 +1,15 @@
+﻿  main.cpp
+  QInt.cpp
+c:\users\chi dung\source\repos\qinttemp1\qinttemp1\qint.cpp(13): warning C4018: '<': signed/unsigned mismatch
+c:\users\chi dung\source\repos\qinttemp1\qinttemp1\qint.cpp(22): warning C4018: '<': signed/unsigned mismatch
+c:\users\chi dung\source\repos\qinttemp1\qinttemp1\qint.cpp(31): warning C4018: '<': signed/unsigned mismatch
+c:\users\chi dung\source\repos\qinttemp1\qinttemp1\qint.cpp(72): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+c:\users\chi dung\source\repos\qinttemp1\qinttemp1\qint.cpp(116): warning C4018: '<': signed/unsigned mismatch
+c:\users\chi dung\source\repos\qinttemp1\qinttemp1\qint.cpp(131): warning C4018: '<': signed/unsigned mismatch
+c:\users\chi dung\source\repos\qinttemp1\qinttemp1\qint.cpp(136): warning C4553: '==': result of expression not used; did you intend '='?
+c:\users\chi dung\source\repos\qinttemp1\qinttemp1\qint.cpp(138): warning C4553: '==': result of expression not used; did you intend '='?
+c:\users\chi dung\source\repos\qinttemp1\qinttemp1\qint.cpp(233): warning C4018: '<': signed/unsigned mismatch
+c:\users\chi dung\source\repos\qinttemp1\qinttemp1\qint.cpp(281): warning C4018: '<': signed/unsigned mismatch
+c:\users\chi dung\source\repos\qinttemp1\qinttemp1\qint.cpp(318): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  QIntTemp1.vcxproj -> C:\Users\Chi Dung\source\repos\QIntTemp1\Debug\QIntTemp1.exe
