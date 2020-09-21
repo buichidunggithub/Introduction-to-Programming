@@ -1,0 +1,166 @@
+BÀI THỰC HÀNH TUẦN 07
+
+Họ tên: Bùi Chí Dũng	
+
+Lớp: 17CTT3
+
+MSSV: 1712364
+
+Ca thực hành: Chiều Thứ 2, 2g45(Ca 2), PM. NDH4.1
+Đề:
+Mảng
+1. Viết chương trình nhâp̣ số nguyên dương N (N ≤ 100) thưc̣ hiêṇ :
+a. Nhâp̣ N số nguyên vào dãy a0, a1, a2, ..
+b. Xuất dãy vừa nhâp̣ ra màn hình.
+c. Đếm xem dãy vừa nhâp̣ có bao nhiêu số nguyên tố, in các số nguyên tố đó ra màn hình.
+d. Nhâp̣ số nguyên X, tìm vị trí xuất hiện của X trên dãy vừa nhập.
+e. Nhâp̣ số nguyên Y, xóa môṭ số có giá tri ̣Y ra khỏi dãy vừa nhâp̣.
+f. Nhâp̣ số nguyên Z, tìm vi ṭríxuất hiêṇ của số trên dãy có giá trị gần với Z nhất.
+2. Viết chương trình nhâp̣ số nguyên dương N (N ≤ 100) thưc̣ hiện:
+a. Nhâp̣ N số nguyên vào dãy a0, a1, a2, ..
+b. Xuất dãy vừa nhâp̣ ra màn hình.
+c. Kiểm tra xem dãy vừa nhâp̣ có phải là dãy tăng dần hay không.
+d. Nếu dãy không tăng dần, hãy sắp xếp lại, xuất dãy ra màn hình.
+e. Nhâp̣ số nguyên X, chèn X vào dãy đang có sao cho dãy vẫn được sắp xếp tăng dần, xuất dãy kết quả ra màn hình.
+
+
+BÀI LÀM:
+Bài 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+int main(){
+	int a[] = {0};
+	int i;
+	//câu a
+	printf("Nhap so pt cua mang: \n");
+	scanf("%d", &i);
+	printf("nhap so nguyen o cac vi tri: \n");
+	for (int x = 0; x < i; x++){
+		printf("a[%d]: ", x);
+		scanf("%d", &a[x]);
+	}
+	//câu b
+	for (int x = 0; x < i; x++)
+		printf("a[%d] = %d\n", x,a[x]);
+	int c[] = {0};
+	int t = 0;
+	for (int x = 0; x < i; x++){
+		int tmp = 0;
+		for (int m = 2; m <= a[x]; m++)
+			if (a[x] % m == 0) tmp++;
+		if (tmp == 1)
+		{
+			c[t] = a[x];
+			t++;
+		}
+	}
+	//câu c
+	printf("co tat ca %d so nguyen to\n", t);
+	if (t!=0){
+		printf("cac so nguyen to do la: ");
+		for (int x = 0; x < t; x++)
+			printf("%d ", c[x]);
+	}
+	printf("\n");
+	int X;
+	//câu d
+	printf("nhap so nguyen X de tim vi tri cua no trong mang: ");
+	scanf("%d", &X);
+	for (int x = 0; x < i; x++)
+		if (X == a[x])
+			printf("a[%d]=%d\n", x, X);
+	int Y;
+	printf("\n");
+	//câu e
+	printf("nhap so nguyen Y can xoa: ");
+	scanf("%d", &Y);
+	int tmp1;
+	tmp1 = i;
+	for (int x = 0; x < i; x++)
+		if (a[x] == Y)
+		{
+			for (int m = x; m < i; m++)
+				a[m] = a[m + 1];
+			x = 0;
+			tmp1--;
+		}
+	for (int x = 0; x < tmp1; x++)
+		printf("a[%d]= %d\n", x, a[x]);
+	int Z, tmp;
+	//câu f
+	printf("Nhap so nguyen Z\n");
+	scanf("%d", &Z);
+	tmp = abs(Z - a[0]);
+	for (int x = 0; x < i; x++)
+		if (tmp > abs(Z - a[x]))
+			tmp = abs(Z - a[x]);
+	for (int x = 0; x < i; x++)
+		if (tmp == abs(Z - a[x]))
+			printf("gia tri gan nhat voi Z co vi tri la: a[%d] = %d va co khoang cach = %d\n", x, a[x], tmp);
+	printf("\n");
+	system("pause");
+	return 0;
+}
+Bài 2:
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+int inMang(int a[], int i);
+int main(){
+	int i;
+	int a[] = {0};
+	//câu a
+	printf("Nhap so phan tu cua mang: \n");
+	scanf("%d", &i);
+	printf("nhap cac so nguyen o cac vi tri\n");
+	for (int x = 0; x < i; x++){
+		printf("a[%d]: ", x);
+		scanf("%d", &a[x]);
+	}
+	//câu b
+	inMang(a, i);
+	int tmp=1;
+	for (int x = 0; x < i; x++)
+		for (int y = x; y < i; y++)
+			if (a[x] > a[y]) tmp = 0;
+	//câu c
+	if (tmp == 1) 
+		printf("day la day tang dan\n");
+	else {
+		printf("day khong phai la day tang dan\n");
+		//câu d
+		printf("day duoc sap xep lai day tang dan\n");
+		for (int x = 0; x < i; x++)
+			for (int y = x; y < i; y++)
+				if (a[x] > a[y])
+				{
+					tmp = a[x];
+					a[x] = a[y];
+					a[y] = tmp;
+				};
+		inMang(a, i);
+		}
+	int X;
+	printf("\n Nhap so X muon chen vao day tang dan:\n"); //câu e
+	scanf("%d", &X);
+	for (int x = 0; x < i; x++)
+		if (a[x] <= X&X <= a[x + 1]){
+			for (int y = i; y > x; y--)
+				a[y] = a[y - 1];
+			i++;
+			a[x+1] = X;
+			break;
+		}
+	inMang(a, i);
+	printf("\n");
+	system("pause");
+	return 0;
+}
+int inMang(int a[], int i)
+{
+	for (int x = 0; x < i; x++)
+		printf("a[%d] = %d\n", x, a[x]);
+	return 0;
+}
+

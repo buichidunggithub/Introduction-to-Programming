@@ -1,0 +1,136 @@
+H? và tên: Bùi Chí Dung
+Mã s? sinh viên 1712364
+L?p: 17CTT3A
+Bài t?p Nh?p môn l?p trình ( th?c hành )
+Ð?:
+1. Vi?t chuong trình nh?p s? th?c R, tính di?n tích hình tròn có bán kính R, bi?t Pi = 3.14159.
+2. Vi?t chuong trình nh?p s? nguyên N, in ra cho bi?t góc có s? do N0
+thu?c cung ph?n tu s?
+m?y c?a du?ng tròn lu?ng giác. Bi?t: góc có s? do [0..90): cung ph?n tu s? 1, [90..180):
+cung ph?n tu s? 2, [180.. 270): cung ph?n tu s? 3, [270..360): cung ph?n tu s? 4.
+3. Vi?t chuong trình nh?p 2 s? nguyên a, b. In ra cho bi?t chu vi, di?n tích c?a hình ch? nh?t
+có d? dài 2 c?nh là a, b.
+4. Vi?t chuong trình nh?p vào 1 ký t?, in ra ký t? in hoa tuong ?ng.
+5. Vi?t chuong trình nh?p vào 1 s? nguyên, in ra ký t? tuong ?ng và ngu?c l?i, nh?p m?t ký
+t?, in ra mã ASCII c?a ký t? dó.
+6. Vi?t chuong trình th?c hi?n các phép tính sau:
+a. A.2n
+, v?i A, n là các s? nguyên
+b. B/2m, v?i B, m là các s? nguyên
+
+----Bài làm
+
+Bài 1
+#include <stdio.h>
+#include <stdlib.h>
+#define pi 3.14159
+int main()
+{
+	float R; double S;
+	printf("nhap ban kinh R:\n");
+	scanf("%f", &R);
+	S = R*R*pi;
+	printf("Dien tinh hinh tron la:%.4lf\n", S);
+	system("pause");
+	return 0;
+}
+
+Bài 2
+//Xac din goc phan tu
+
+#include "stdio.h"
+ 
+int main ()
+{
+    int N, k;
+    do
+    {
+        printf("\n Nhap vao so do goc (0 <= x <= 360*k) = ");
+        scanf("%d", &N);
+    }while(N < 0);
+ 
+    k = N / 360;
+ 
+    if(N >= (360*k) && N < (90 + 360*k))
+        printf("\n %d o goc phan tu thu I", N);
+    else if (N >= (90 + 360*k) && N < (180 + 360*k))
+        printf("\n %d o goc phan tu thu 2", N);
+    else if (N >= (180 + 360*k) && N < (270 + 360*k))
+        printf("\n %d o goc phan tu thu 3", N);
+    else if (N >= (270 + 360*k) && N <= 360*(k + 1))
+        printf("\n %d o goc phan tu thu 4", N);
+    else
+        printf("\n %d khong hop le");
+    
+return 0;
+}
+
+
+Bài 3
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	int a, b, P, S;
+	printf("nhap chieu dai:\n");
+	scanf("%d", &a);
+	printf("nhap chieu rong: \n");
+	scanf("%d", &b);
+	S = a*b;
+	P = 2 * (a + b);
+	printf("chu vi la: %d\ndien tich la: %ld\n", P, S);
+	system("pause");
+	return 0;
+}
+
+Bài 4
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	int kt;
+	printf("nhap ki tu:\n");
+	scanf("%c", &kt);
+	printf("ki tu in hoa:%c\n", kt-32);
+	system("pause");
+	return 0;
+}
+Bài 5
+// Bai tap ve ACII
+
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	int i; char x;
+	printf("nhap ki tu: ");
+	scanf("%c", &x);
+	printf("ma ASCII: %d\n", x);
+	printf("nhap so:  ");
+	scanf("%d", &i);
+	printf("ki tu ASCII: %c\n", i);
+	system("pause");
+	return 0;
+}
+
+Bài 6
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{
+	int A, B, m, n, z;
+	printf("a) nhap so nguyen A va so mu n: \n");
+	scanf("%d%ld", &A, &n);
+	z = pow(2, n);
+	printf("ket qua cua A.2^n la: %ld\n", A*z);
+	printf("b) nhap so nguyen B va so mu m: \n");
+	scanf("%d%d", &B, &m);
+	printf("ket qua cua B/2^m la: %.4f\n", B / pow(2, m));
+	system("pause");
+	return 0;
+}
+
+
+
